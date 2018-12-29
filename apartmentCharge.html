@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>部门费用</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style>
+        /*table{*/
+        /*margin: 80px 80px  80px;*/
+        /*}*/
+        .table tbody tr td{
+            vertical-align: middle;
+        }
+        th,td{
+            text-align: center;
+        }
+        #list{
+            margin-top: 80px;
+        }
+        .yearPick{
+            margin-left: 20px;
+        }
+        .confirmYear{
+            float: right;
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">部门费用</h3>
+    </div>
+</div>
+<form action="">
+    <div class="row yearPick">
+        <div class='input-group date form_date col-sm-4' id="datetimepicker" readonly="readonly">
+            <input class="form-control form_datetime col-sm-3" type="text" value="" size="16">
+            <span class="input-group-addon input-sm">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <button class="btn btn-primary col-sm-1 confirmYear">确定</button>
+        </div>
+    </div>
+</form>
+<table class="table table-bordered table-hover table-striped" id="list">
+    <thead>
+    <tr>
+        <td colspan="7" class="panel-title">部门费用管理登记表</td>
+    </tr>
+    <tr>
+        <td>月份</td>
+        <td>差旅费</td>
+        <td>宴请</td>
+        <td>公关</td>
+        <td>油费</td>
+        <td>其它</td>
+        <td>合计</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>300</td>
+        <td>100</td>
+        <td>dfdfdsfdsfds</td>
+        <td>1</td>
+        <td>dfdfdsfdsfds</td>
+        <td>dfdfdsfdsfds</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>300</td>
+        <td>100</td>
+        <td>dfdfdsfdsfds</td>
+        <td>1</td>
+        <td>dfdfdsfdsfds</td>
+        <td>dfdfdsfdsfds</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    $('#datetimepicker').datetimepicker({
+        format: 'yyyy',
+        weekStart: 1,
+        autoclose: true,
+        startView: 4,
+        minView:4,
+        maxViewMode: 1,
+        minViewMode:1,
+        forceParse: false,
+        language: 'zh-CN'
+    });
+</script>
+<!--<script language="JavaScript">-->
+    <!--$("#datetimepicker").datetimepicker({-->
+        <!--format: 'YYYY-MM',-->
+        <!--locale: moment.locale('zh-cn'),-->
+    <!--}).on('changeDate', function(){-->
+        <!--var date = $("#year").val();-->
+        <!--getSaleCount(date);-->
+    <!--});-->
+<!--</script>-->
+
+</body>
+</html>

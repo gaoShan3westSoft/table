@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>各项费用统计</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <style>
+        /*table{*/
+        /*margin: 80px 80px  80px;*/
+        /*}*/
+        .table tbody tr td{
+            vertical-align: middle;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">各项费用分类统计</h3>
+    </div>
+</div>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+        <td colspan="6" class="panel-title">费用分类统计表</td>
+    </tr>
+    <tr>
+        <td>序号</td>
+        <td>类别</td>
+        <td>预算成本</td>
+        <td>实际支出</td>
+        <td>占比（支出/预算）</td>
+        <td>查看详情</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>材料授信金额</td>
+        <td>1000</td>
+        <td>1500</td>
+        <td>150%</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>基建费用</td>
+        <td>1000</td>
+        <td>1500</td>
+        <td>150%</td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加费用报销登记</title>
+    <link href="lib/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="lib/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="lib/animate.css" rel="stylesheet">
+    <link href="lib/style.css?v=3.0.0" rel="stylesheet">
+    <!--<link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
+    <!--<script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+    <style>
+        .form-control{
+            width: 300px;
+        }
+        .confrimInput{
+            margin-left: 20px;
+        }
+        .addInpu{
+
+        }
+        #toAdd{
+            margin-left: -6px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>添加费用报销登记</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <!--  <ul class="dropdown-menu dropdown-user">
+                             <li><a href="form_basic.html#">选项1</a>
+                             </li>
+                             <li><a href="form_basic.html#">选项2</a>
+                             </li>
+                         </ul> -->
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="post" action="/center/reimbursement/save" class="form-horizontal m-t" id="commentForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">管理类型选择</label>
+                            <select class="col-sm-2 form-control" id="managerTypeSel" >
+                                <option value="2">施工管理</option>
+                                <option value="1">项目管理</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="projectNum">
+                            <label class="control-label col-sm-2">项目编号</label>
+                            <input type="text" class="form-control col-sm-2" placeholder="请输入项目编号" id="projInput">
+                            <input type="button" class="btn btn-primary confrimInput" value="确认" id="checkProjectNum">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">项目费用id</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="costId" name="costId" class="form-control" number="true" required="" aria-required="true" >
+                                    <span class="help-block m-b-none">说明：在项目详情费用列表最开头的数字</span>
+                                </div>
+                            </div>
+                            <div id="project">
+                            </div>
+                            <div id="cost">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">报销人</label>
+                                <div class="col-sm-2">
+                                    <input type="text" name="reimbursement" class="form-control" required="" aria-required="true" >
+                                </div>
+                            </div>
+                            <!--<label class="col-sm-2 control-label">报销人</label>-->
+                            <!--<div class="col-sm-2">-->
+                                <!--<input type="text" name="reimbursement" class="form-control" required="" aria-required="true" >-->
+                            <!--</div>-->
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">报销金额</label>
+                                <div class="col-sm-2">
+                                    <input type="text" name="reimbursementAmount" class="form-control" number="true" required="" aria-required="true" >
+                                </div>
+                            </div>
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-sm-2 control-label">报销金额</label>-->
+                            <!--<div class="col-sm-2">-->
+                                <!--<input type="text" name="reimbursementAmount" class="form-control" number="true" required="" aria-required="true" >-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">报销类别</label>
+                            <div class="col-sm-4">
+                                <select class="form-control m-b" name="type" required="" aria-required="true" id="bxSel">
+                                    <option value="" selected="selected">请选择</option>
+                                    <option value="CLSXJE">材料授信金额</option>
+                                    <option value="JJFY">基建费用</option>
+                                    <option value="AZFY">安装费用</option>
+                                    <option value="YSFY">运输费用</option>
+                                    <option value="XMGGFY">项目公关费用</option>
+                                    <option value="WXYT">维修预提</option>
+                                    <option value="CL">差旅</option>
+                                    <option value="ZBJ">质保金</option>
+                                    <option value="YWTC">业务提成</option>
+                                    <option value="CJ">差价</option>
+                                    <option value="QTFY">其它费用</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容详细</label>
+                            <div class="col-sm-2">
+                                <input type="text" name="contentDetail" class="form-control" required="" aria-required="true" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-primary" id="submitContent" type="submit">保存内容</button>
+                                <button class="btn btn-white" type="button">取消</button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js?v=3.4.0"></script>
+<!-- 自定义js -->
+<script src="/js/content.js?v=1.0.0"></script>
+<!-- jQuery Validation plugin javascript-->
+<script src="/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="/js/plugins/validate/messages_zh.min.js"></script>
+<script src="/js/plugins/layer/laydate/laydate.js"></script>
+<script>
+    //以下为修改jQuery Validation插件兼容Bootstrap的方法，没有直接写在插件中是为了便于插件升级
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function (element) {
+            element.closest('.form-group').removeClass('has-error').addClass('has-success');
+        },
+        errorElement: "span",
+        errorPlacement: function (error, element) {
+            if (element.is(":radio") || element.is(":checkbox")) {
+                error.appendTo(element.parent().parent().parent());
+            } else {
+                error.appendTo(element.parent());
+            }
+        },
+        errorClass: "help-block m-b-none",
+        validClass: "help-block m-b-none"
+    });
+    $().ready(function () {
+        // validate the comment form when it is submitted
+        $("#commentForm").validate();
+    });
+    $('.btn-white').click(function(){
+        window.location.href="/center/reimbursement/list";
+    });
+    //查询项目
+    $("#costId").blur(function(){
+        var costId = $('#costId').val();
+        if(costId == null || costId == "" || costId == undefined){
+            alert("请输入项目编号");
+            return ;
+        }
+        $.ajax({
+            url:"/center/reimbursement/getProAndInstall",
+            data : {
+                "costId":costId
+            },
+            type:"post",
+            dataType : "json",
+            cache : false,
+            success : function(obj, textStatus) {
+                var projectName = obj.data.projectName;
+                var costName = obj.data.costName;
+                var htmlProject = '<div class="form-group">'+
+                    '<label class="col-sm-2 control-label">报销的项目名称</label>'+
+                    '<div class="col-sm-2">'+
+                    '<input type="text"  value="'+projectName+'" disabled="disabled" class="form-control">'+
+                    '</div>'+
+                    '</div>';
+                var htmlCost = '<div class="form-group">'+
+                    '<label class="col-sm-2 control-label">项目费用类型</label>'+
+                    '<div class="col-sm-2">'+
+                    '<input type="text"  value="'+costName+'" disabled="disabled" class="form-control">'+
+                    '</div>'+
+                    '</div>';
+                if (obj.status == 1) {
+                    $('#project').html(htmlProject);
+                    $('#cost').html(htmlCost);
+                    $('#submitContent').attr("disabled",false);
+                }
+
+                else if(obj.status==2){
+                    alert("未查到此id的项目费用，请重新输入有效的id");
+                    $('#submitContent').attr("disabled",true);
+                }
+                else if(obj.status==3){
+                    $('#project').html(htmlProject);
+                    $('#cost').html(htmlCost);
+                    alert("此费用类型下的报销已添过，请务必重复添加");
+                    $('#submitContent').attr("disabled",true);
+
+                }
+            },
+            error : function(textStatus, e) {
+                alert("系统ajax交互错误: " + textStatus);
+            }
+        });
+    });
+
+</script>
+<script>
+    $('#managerTypeSel').change(function () {
+        $('#bxSel').empty()
+        var seloptArray=[]
+        var seloptValueArrya=[]
+        var selval = $('#managerTypeSel').val()
+        console.log("sel:",selval)
+        if(selval == 1){
+            //项目
+            $('#projectNum').hide()
+            seloptArray = ['差旅费','宴请','公关','油费','其它']
+            seloptValueArrya = ['CLF','YQ','GG','YF','QT']
+        }else {
+            //施工管理
+            $('#projectNum').show()
+            seloptArray = ['材料授信金额','基建费用','安装费用','运输费用','项目公关费用','维修预提','差旅','质保金','业务提成','差价','其它费用']
+            seloptValueArrya = ['CLSXJE','JJFY','AZFY','YSFY','XMGGFY','WXYT','CL','ZBJ','YWTC','CJ','QTFY']
+        }
+        for(var i=0;i<seloptArray.length;i++){
+            var value = seloptValueArrya[i]
+            var text = seloptArray[i]
+            //console.log(value,text)
+            $("#bxSel").append("<option value="+"/'"+value+"/'"+">"+text+"</option>")
+            console.log("<option value="+"/'"+value+"/'"+">"+text+"</option>")
+        }
+    });
+    $("#checkProjectNum").click(function(){
+        var projectNum = $('#projInput').val();
+        console.log("projectNum:"+projectNum)
+        if(projectNum == null || projectNum == "" || projectNum == undefined){
+            alert("请输入项目编号");
+            return ;
+        }
+        // $.ajax({
+        //     url:"",
+        //     data : {
+        //         "costId":costId
+        //     },
+        //     type:"post",
+        //     dataType : "json",
+        //     cache : false,
+        //     success : function(obj, textStatus) {
+        //         if (textStatus == 200) {
+        //
+        //         }
+        //     }
+        //     },
+        //     error : function(textStatus, e) {
+        //         alert("系统ajax交互错误: " + textStatus);
+        //     }
+        if (true){
+            $('#toAdd').remove()
+            var projectName = '田总的项目'
+               var str = "<div class='form-group' id='toAdd'><div class='form-group'><label class='col-sm-2 control-label'></label><div class='col-sm-2'><input type=\"text\"  value="+projectName+" disabled=\"disabled\" class=\"form-control\"></div></div></div>"
+            $('#projectNum').append(str)
+            // $('#projectNum').append('<input type="text"  value="'+projectName+'" disabled="disabled" class="form-control">')
+        }else {
+
+        }
+    });
+</script>
+</body>
+</html>

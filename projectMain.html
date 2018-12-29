@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目详情</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <style>
+        /*table{*/
+            /*margin: 80px 80px  80px;*/
+        /*}*/
+        .table tbody tr td{
+            vertical-align: middle;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">项目管理</h3>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <td colspan="6" class="panel-title">项目概况</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td >项目名称</td>
+            <td class="success" colspan="2"></td>
+            <td >项目编号</td>
+            <td class="success" colspan="2"></td>
+        </tr>
+        <tr>
+            <td >客户名称</td>
+            <td class="success" colspan="2"></td>
+            <td >客户联系电话</td>
+            <td class="success" colspan="2"></td>
+        </tr>
+        <tr>
+            <td >项目地址</td>
+            <td class="success" colspan="2"></td>
+            <td >代表处</td>
+            <td class="success" colspan="2"></td>
+        </tr>
+        <tr>
+            <td >合同金额</td>
+            <td class="success" colspan="2"></td>
+            <td >状态</td>
+            <td class="success" colspan="2"></td>
+        </tr>
+        <tr>
+            <td rowspan="2">预决算</td>
+            <td rowspan="2">成本</td>
+            <td colspan="2">利润（不含维修)</td>
+            <td colspan="2">利润（含维修）</td>
+        </tr>
+        <tr>
+            <td >毛利</td>
+            <td >毛利率</td>
+            <td >毛利</td>
+            <td >毛利率</td>
+        </tr>
+        <tr>
+            <td >预算</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+        </tr>
+        <tr>
+            <td >决算</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+        </tr>
+        <tr>
+            <td colspan="6">主体材料核算</td>
+        </tr>
+        <tr>
+            <td >预决算</td>
+            <td >含税销售金额</td>
+            <td >销售金额</td>
+            <td >材料成本</td>
+            <td >利润</td>
+            <td >材料毛利率</td>
+        </tr>
+        <tr>
+            <td >预算</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+            <td class="success" >1409</td>
+        </tr>
+        <tr>
+            <td >决算</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+            <td class="danger" >1409</td>
+        </tr>
+        <tr>
+            <td colspan="6">各项费用分类统计</td>
+        </tr>
+        <tr>
+            <td >序号</td>
+            <td >类别</td>
+            <td >预算成本</td>
+            <td >实际支出</td>
+            <td >占比(支出/预算)</td>
+            <td >操作</td>
+        </tr>
+        <tr>
+            <td >1</td>
+            <td >材料授信金额</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >2</td>
+            <td >基建费用</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >3</td>
+            <td >安装费用</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >4</td>
+            <td >运输费用</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./sheShiNongYeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >5</td>
+            <td >项目公关费用</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >6</td>
+            <td >维修预提</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >7</td>
+            <td >差旅</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >8</td>
+            <td >质保金</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >9</td>
+            <td >业务提成</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >10</td>
+            <td >差价</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="./chargeDetail.html">查看详情</a></td>
+        </tr>
+        <tr>
+            <td >11</td>
+            <td >其它费用</td>
+            <td >0</td>
+            <td >0</td>
+            <td >0</td>
+            <td ><a href="#">查看详情</a></td>
+        </tr>
+        <tr>
+            <td colspan="2">设计组项目实施说明</td>
+            <td colspan="4">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">安装组项目实施说明</td>
+            <td colspan="4">0</td>
+        </tr>
+        <tr>
+            <td colspan="2">内务组项目实施说明</td>
+            <td colspan="4">0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            testmsg:'hello vue'
+        },
+        methods:{
+            getInitData(){
+                axios.get('http://149.129.111.74:8081/shortMessageLogin?mobile=18919065803&password=123456&enterCode=753908')
+                    .then(function (response) {
+                        console.log(response)
+                        if (response.status == 200){
+                            //处理数据
+                        } else if (response.status == 404){
+                            console.log('404')
+                        } else if(response.status == 500){
+                            console.log('500')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+                    .then(function () {
+                        
+                    })
+            }
+        },
+        mounted() {
+            console.log('lalalalalla');
+            this.getInitData()
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入库管理</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+    <style>
+        /*table{*/
+        /*margin: 80px 80px  80px;*/
+        /*}*/
+        .table tbody tr td{
+            vertical-align: middle;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">入库管理</h3>
+    </div>
+</div>
+<form role="form">
+    <div class="form-group">
+        <label>类型选择</label>
+        <select class="form-control">
+            <option>主体</option>
+            <option>配件</option>
+        </select>
+    </div>
+</form>
+<div class="panel-body form-inline">
+    <a class="btn btn-primary btn-lg" href="./inStorageRecord.html" style="float: right ;margin: 20px">入库记录</a>
+</div>
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+    <tr>
+        <td>材料编号</td>
+        <td>名称</td>
+        <td>规格</td>
+        <td>单位</td>
+        <td>数量</td>
+        <td>单价</td>
+        <td>总价</td>
+        <td>税额</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>100</td>
+        <td>1000</td>
+        <td>2000</td>
+        <td>4000</td>
+        <td>100</td>
+        <td>1000</td>
+        <td>2000</td>
+        <td>4000</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>100</td>
+        <td>1000</td>
+        <td>2000</td>
+        <td>4000</td>
+        <td>100</td>
+        <td>1000</td>
+        <td>2000</td>
+        <td>4000</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
